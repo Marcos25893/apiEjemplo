@@ -19,3 +19,10 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 # podman pull alansastre/springbootapp:1.0
 # podman run -p 8080:8080 --name springapp -d -t alansastre/springbootapp:1.0
 # podman rmi alansastre/springbootapp:1.0
+
+
+#Pasos para desplegarlo en Amazon EC2
+#Subir al repositorio
+#Bajarse los cambios del repositorio
+#Generar un nuevo jar con (./gradlew bootJar)
+#borrar contenedor de spring y volver a crear otro podman build -t springapiejemplo:1.0 .
