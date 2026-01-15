@@ -30,7 +30,7 @@ public class TaskController {
         else
             return ResponseEntity.ok(task.get());
 
-        /* Es lo mismo pero en una linea
+        /* Es lo mismo que el if pero en una linea
         return task.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
          */
 
