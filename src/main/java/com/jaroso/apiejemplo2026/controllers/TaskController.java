@@ -37,7 +37,6 @@ public class TaskController {
         /* Es lo mismo que el if pero en una linea
         return task.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
          */
-
     }
 
     @GetMapping("/tasks/title/{title}")
