@@ -44,7 +44,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           source: "./artifacts/*.jar"
-          target: "/home/ubuntu/spring/ApiEjemplo2026/build/libs/"
+          target: "/home/ubuntu/spring/apiEjemplo/build/libs/"
       - name: DeployEC2
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -54,7 +54,7 @@ jobs:
           port: 22
           script: >-
             set -e && 
-            APP_DIR=/home/ubuntu/spring/ApiEjemplo2026 && 
+            APP_DIR=/home/ubuntu/spring/apiEjemplo && 
             cd $APP_DIR && 
             
             echo "Actualizar código en servidor..." && 
@@ -64,6 +64,7 @@ jobs:
             podman build -t springapiejemplo:1.0 . && 
             
             echo "Parar contenedor Spring si existe..." && 
+            podman stop springapp || true &&
             podman rm -f springapp || true && 
             
             echo "Levantar contenedor MariaDB..." && 
